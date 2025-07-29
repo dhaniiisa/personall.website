@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Love Letter Envelope</title>
+  <style>
+    body {
+      background: #ffe6f0;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Georgia', serif;
+    }
+
+    .envelope-container {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      cursor: pointer;
+      
+    }
+
+    /* Segitiga hadap bawah */
+    .flap {
+      position: absolute;
+      bottom: 50%;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 150px solid transparent;
+      border-right:150px solid transparent;
+      border-top: 100px solid #ff99bb;
+      z-index: 90;
+      transition: transform 1s ease;
+      transform-origin: bottom center;
+    }
+
+    .envelope {
+      width: 100%;
+      height: 100%;
+      background: #ff5e99;
+      position: absolute;
+      border-radius: 5px;
+      box-shadow: 0 20px 25px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+
+    .letter {
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      width: 80%;
+      height: 170px;
+      background: white;
+      border-radius: 5px;
+      padding: 10px;
+      box-sizing: border-box;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      z-index: 1;
+      transform: translateY(100%);
+      opacity: 0;
+      transition: transform 1s ease, opacity 1s ease;
+    }
+
+    .envelope-container.open .flap {
+      transform: rotatey(180deg);
+    }
+
+    .envelope-container.open .letter {
+      transform: translateY(-200px);
+      opacity: 1;
+    }
+
+    .letter h3 {
+      margin-top: 0;
+      color: #d63384;
+    }
+
+    .letter p {
+      font-size: 11px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .heart {
+      position: absolute;
+      top: 65%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 50px;
+      color: rgb(12, 6, 6);
+      z-index: 3;
+      text-align: center;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .heart span {
+      display: block;
+      font-size: 28px;
+      margin-top: 5px;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      color: white;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="envelope-container" onclick="this.classList.toggle('open')">
+    <div class="flap"></div>
+    <div class="heart">❤️<span>click</span></div>
+    <div class="envelope"></div>
+    <div class="letter">
+      <h3>Dear My Love,</h3>
+      <p>I just wanted to remind you, pacarmu jelek.</p>
+    </div>
+  </div>
+
+</body>
+</html>
