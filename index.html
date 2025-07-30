@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Love Letter Envelope</title>
+  <style>
+    body {
+      background: #98c9e5;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Georgia', serif;
+    }
+
+    .envelope-container {
+      position: absolute;
+      width: 300px;
+      height: 200px;
+      cursor: pointer;
+    }
+
+    .envelope {
+      width: 100%;
+      height: 100%;
+      background: #0fc0f1;
+      position: relative;
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    /* Segitiga menghadap bawah, berada DI DALAM amplop */
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 150px solid transparent;
+      border-right: 150px solid transparent;
+      border-top: 100px solid #ff99bb;
+      z-index: 2;
+      transition: transform 1s ease;
+      transform-origin: top center;
+    }
+
+    .letter {
+      position: relative;
+      bottom: 0;
+      left: 10%;
+      width: 80%;
+      height: 160px;
+      background: white;
+      border-radius: 5px;
+      padding: 20px;
+      box-sizing: border-box;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      z-index: 0;
+      transition: transform 1s ease;
+      transform: translateY(100%);
+    }
+
+    .envelope-container.open .flap {
+      transform: rotateX(180deg);
+    }
+
+    .envelope-container.open .letter {
+      transform: translateY(-250px);
+    }
+
+    .letter h3 {
+      margin-top: 0;
+      color: #d63384;
+    }
+
+    .letter p {
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
+    }
+    </style>
+</head>
+<body>
+
+  <div class="envelope-container" onclick="this.classList.toggle('open')">
+    <div class="flap"></div>
+    <div class="envelope"></div>
+    <div class="letter">
+      <h3>Dear My Love,</h3>
+      <p>I just wanted to remind you how much you mean to me.</p>
+      <p>Your smile brightens my world, and your presence makes everything better.</p>
+      <p>Forever yours,<br> 💖 Someone Who Loves You</p>
+    </div>
+  </div>
+
+</body>
+</html>
